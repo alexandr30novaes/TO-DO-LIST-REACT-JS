@@ -1,13 +1,18 @@
-import Task from './Task'
+import Task from './Task';
 
-const TaskList = () => {
+const TaskList = ({ tasks, onRemoveTask, onToggleTask }) => {
   return (
     <ul>
-        <Task />
-        <Task />
-        <Task />
+      {tasks.map(task => (
+        <Task 
+          key={task.id} 
+          task={task} 
+          onRemove={onRemoveTask} 
+          onToggle={onToggleTask} 
+        />
+      ))}
     </ul>
-  )
-}
+  );
+};
 
-export default TaskList
+export default TaskList;

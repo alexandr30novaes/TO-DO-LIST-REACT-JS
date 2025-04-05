@@ -1,11 +1,10 @@
-
-const Task = () => {
+const Task = ({ task, onRemove, onToggle }) => {
   return (
-    <li>
-        <span>Texto da tarefa</span>
-        <button>Remover</button>
+    <li style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
+      <span onClick={() => onToggle(task.id)}>{task.text}</span>
+      <button onClick={() => onRemove(task.id)}>Remover</button>
     </li>
-  )
-}
+  );
+};
 
-export default Task
+export default Task;
